@@ -36,6 +36,8 @@
               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
           </ul>
       </div>
+      <?php else: ?>
+      <!-- <p class="mssg"><?php echo e(session('mssg')); ?></p> -->
       <?php endif; ?>
     </head>
    <!-- body -->

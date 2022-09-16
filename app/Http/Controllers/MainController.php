@@ -26,6 +26,6 @@ class MainController extends Controller
         ]);
 
         $forms->save();
-        return redirect('/');
+        return redirect('/')->with('mssg','Budeme Vas kontaktovat...');
     }
 }

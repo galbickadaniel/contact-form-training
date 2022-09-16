@@ -36,6 +36,8 @@
               @endforeach
           </ul>
       </div>
+      @else
+      <p class="mssg">{{ session('mssg')}}</p>
       @endif
     </head>
    <!-- body -->
