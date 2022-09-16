@@ -28,7 +28,16 @@
       <link rel="stylesheet" href="<?php echo url ('/'); ?>/css/owl.carousel.min.css">
       <link rel="stylesheet" href="<?php echo url ('/'); ?>/css/owl.theme.default.min.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
-   </head>
+      @if ($errors->any())
+      <div class="alert alert-danger">
+          <ul>
+              @foreach ($errors->all() as $error)
+                  <li>{{ $error }}</li>
+              @endforeach
+          </ul>
+      </div>
+      @endif
+    </head>
    <!-- body -->
    <body>
       <!-- header top section start -->
@@ -86,17 +95,21 @@
             <div class="row">
               <div class="col-md-6">
                 <div class="mail_section">
-                  <input type="text" class="mail_text" placeholder="Name" name="text">
-                  <input type="text" class="mail_text" placeholder="Email" name="text">
-                  <input type="text" class="mail_text" placeholder="Phone Number" name="text">
-                  <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
-                  <div class="send_bt"><a href="#">SEND</a></div>
+                  <form id="idform" action="/" method="POST">
+                    @csrf
+                    <input type="text" class="mail_text" placeholder="Name" name="name">
+                    <input type="text" class="mail_text" placeholder="Email" name="email">
+                    <input type="text" class="mail_text" placeholder="Phone Number" name="phone_number">
+                    <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+                    <input type="hidden" name="action" value="SEND" />
+                  </form>
+                  <div class="send_bt"><a href="javascript:;" onclick="javascript:document.getElementById('idform').submit()">SEND</a></div>
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="map_text"><img src="<?php echo url ('/'); ?>/images/call-icon-1.png"><span class="call_text_left">+01 9876543210</span>
                 <div class="map_text"><img src="<?php echo url ('/'); ?>/images/mail-icon-1.png"><span class="call_text_left">democheck@gmail.com</span>
-                <div class="map_text_1"><img src="<?php echo url ('/'); ?>/images/map-icon-1.png"><span class="call_text_left">t is a long established fact that a reader will be distracted by the readable conten</span>
+                <div class="map_text_1"><img ssrc="<?php echo url ('/'); ?>/images/map-icon-1.png"><span class="call_text_left">t is a long established fact that a reader will be distracted by the readable conten</span>
                 </div>
               </div>
             </div>
