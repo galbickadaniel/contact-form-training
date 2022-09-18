@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MainController;
+// use App\Mail\TestEmail;
+use App\Http\Controllers\MailController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +19,5 @@ use App\Http\Controllers\MainController;
 
 Route::get('/', [MainController::class, 'index']);
 Route::post('/', [MainController::class, 'store']);
+
+Route::get('sendMail/{email}', [MailController::class, 'sendMail']);
